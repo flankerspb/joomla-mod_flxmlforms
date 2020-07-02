@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form
+	label="COM_CONTACT_EMAIL_FORM"
+	submit="JSUBMIT"
+	cancel="JCANCEL"
+	subject="MOD_FLXMLFORMS_SUBJECT"
+	subject_date="DATE_FORMAT_LC"
+	subject_name="name"
+	subject_site="host"
+>
+	<fieldset
+		name="base"
+		attribs="data-uk-grid-margin"
+	>
+		<field
+			name="name"
+			label="MOD_FLXMLFORMS_FORM_HINT_NAME"
+			hint="MOD_FLXMLFORMS_FORM_HINT_NAME"
+			icon="user"
+			type="text"
+			filter="string"
+			value="name"
+			required="required"
+		/>
+		
+		<field
+			name="email"
+			type="email"
+			groupClass="uk-width-1-2"
+			label="MOD_FLXMLFORMS_FORM_HINT_EMAIL"
+			hint="MOD_FLXMLFORMS_FORM_HINT_EMAIL"
+			icon="envelope"
+			filter="string"
+			autocomplete="email"
+			value="email"
+		/>
+		
+		<field
+			name="phone"
+			type="phone"
+			groupClass="uk-width-1-2"
+			label="MOD_FLXMLFORMS_FORM_HINT_PHONE"
+			hint="MOD_FLXMLFORMS_FORM_HINT_PHONE"
+			icon="phone"
+			filter="string"
+			value="phone"
+		/>
+		
+		<field
+			name="message"
+			type="textarea"
+			label="MOD_FLXMLFORMS_FORM_HINT_MESSAGE"
+			hint="MOD_FLXMLFORMS_FORM_HINT_MESSAGE"
+			rows="2"
+			filter="safehtml"
+		/>
+		
+		<field
+			name="captcha"
+			type="captcha"
+			label="COM_CONTACT_CAPTCHA_LABEL"
+			validate="captcha"
+		/>
+		
+		<field
+			name="spacer"
+			type="spacer"
+			label="COM_CONTACT_CONTACT_REQUIRED"
+			class="text"
+		/>
+	</fieldset>
+	
+</form>

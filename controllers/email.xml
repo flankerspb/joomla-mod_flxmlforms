@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+			
+			<field
+				name="tmpl"
+				label="MOD_FLXMLFORMS_MESSAGE_TEMPLATE"
+				type="filelist"
+				directory="modules/mod_flxmlforms/controllers/email"
+				filter=".php"
+				stripext="true"
+				hide_none="true"
+				hide_default="true"
+				default="default"
+			/>
+			
+			<field
+				name="to"
+				label="MOD_FLXMLFORMS_MAIL_TO"
+				type="groupedsql"
+				query_contacts="SELECT CONCAT('contacts_', id) AS value, name, (email_to = '') AS disabled FROM #__contact_details ORDER BY name"
+				query_users="SELECT CONCAT('users_', id) AS value, CONCAT(name, ' (', username, ')') AS name, (block != 0) AS disabled FROM #__users ORDER BY name"
+				value_field="value"
+				title_field="name"
+				multiple="false"
+			>
+				<group label="JSITE">
+					<option value="sitecontacts_mailfrom">MOD_FLXMLFORMS_SITE_MAILFROM</option>
+					<option value="sitecontacts_replyto">MOD_FLXMLFORMS_SITE_REPLYTO</option>
+				</group>
+				<group query="contacts" label="MOD_FLXMLFORMS_CONTACTS"/>
+				<group query="users" label="MOD_FLXMLFORMS_USERS"/>
+			</field>
+			
+			<field
+				name="replyto"
+				label="MOD_FLXMLFORMS_MAIL_REPLYTO"
+				type="groupedsql"
+				query_contacts="SELECT CONCAT('contacts_', id) AS value, name, (email_to = '') AS disabled FROM #__contact_details ORDER BY name"
+				query_users="SELECT CONCAT('users_', id) AS value, CONCAT(name, ' (', username, ')') AS name, (block != 0) AS disabled FROM #__users ORDER BY name"
+				value_field="value"
+				title_field="name"
+				multiple="false"
+			>
+				<option value="">JNO</option>
+				<group label="JSITE">
+					<option value="sitecontacts_mailfrom">MOD_FLXMLFORMS_SITE_MAILFROM</option>
+					<option value="sitecontacts_replyto">MOD_FLXMLFORMS_SITE_REPLYTO</option>
+				</group>
+				<group query="contacts" label="MOD_FLXMLFORMS_USERS"/>
+				<group query="users" label="MOD_FLXMLFORMS_CONTACTS"/>
+			</field>
+			
+			<field
+				name="cc"
+				label="MOD_FLXMLFORMS_MAIL_CC"
+				type="groupedsql"
+				query_contacts="SELECT CONCAT('contacts_', id) AS value, name, (email_to = '') AS disabled FROM #__contact_details ORDER BY name"
+				query_users="SELECT CONCAT('users_', id) AS value, CONCAT(name, ' (', username, ')') AS name, (block != 0) AS disabled FROM #__users ORDER BY name"
+				value_field="value"
+				title_field="name"
+				multiple="true"
+			>
+				<group label="JSITE">
+					<option value="sitecontacts_mailfrom">MOD_FLXMLFORMS_SITE_MAILFROM</option>
+					<option value="sitecontacts_replyto">MOD_FLXMLFORMS_SITE_REPLYTO</option>
+				</group>
+				<group query="contacts" label="MOD_FLXMLFORMS_USERS"/>
+				<group query="users" label="MOD_FLXMLFORMS_CONTACTS"/>
+			</field>
+			
+			<field
+				name="bcc"
+				label="MOD_FLXMLFORMS_MAIL_BCC"
+				type="groupedsql"
+				query_contacts="SELECT CONCAT('contacts_', id) AS value, name, (email_to = '') AS disabled FROM #__contact_details ORDER BY name"
+				query_users="SELECT CONCAT('users_', id) AS value, CONCAT(name, ' (', username, ')') AS name, (block != 0) AS disabled FROM #__users ORDER BY name"
+				value_field="value"
+				title_field="name"
+				multiple="true"
+			>
+				<group label="JSITE">
+					<option value="sitecontacts_mailfrom">MOD_FLXMLFORMS_SITE_MAILFROM</option>
+					<option value="sitecontacts_replyto">MOD_FLXMLFORMS_SITE_REPLYTO</option>
+				</group>
+				<group query="contacts" label="MOD_FLXMLFORMS_USERS"/>
+				<group query="users" label="MOD_FLXMLFORMS_CONTACTS"/>
+			</field>
+			
+			<field
+				name="user_copy"
+				label="MOD_FLXMLFORMS_MAIL_COPY"
+				type="list"
+				class="chzn-single chzn-color-state"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+				<option value="2">MOD_FLXMLFORMS_MAIL_COPY_FORM_OPTION</option>
+			</field>
+			
+</form>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form
+	header="MOD_FLXMLFORMS_HEADER_ORDER"
+	submit="JSUBMIT"
+	cancel="JCANCEL"
+	subject="MOD_FLXMLFORMS_MESSAGE_SUBJECT_ORDER"
+	notice="MOD_FLXMLFORMS_FORM_NOTICE_REQUIRED_STAR"
+	rules="MOD_FLXMLFORMS_RULES"
+>
+	<fieldset
+		name="base"
+		class="uk-grid uk-grid-width-1-1 uk-grid-small"
+		attribs="data-uk-grid-margin"
+	>
+		<field
+			name="name"
+			label="MOD_FLXMLFORMS_FORM_LABEL_NAME"
+			type="text"
+			filter="string"
+			required="required"
+		/>
+		
+		<field
+			name="email"
+			type="email"
+			groupClass="uk-width-1-1 uk-width-small-1-2"
+			label="MOD_FLXMLFORMS_FORM_LABEL_EMAIL"
+			filter="string"
+			required="required"
+		/>
+		
+		<field
+			name="phone"
+			type="phone"
+			groupClass="uk-width-1-1 uk-width-small-1-2"
+			label="MOD_FLXMLFORMS_FORM_LABEL_PHONE"
+			filter="string"
+			required="required"
+		/>
+		
+		<field
+			name="message"
+			type="textarea"
+			label="MOD_FLXMLFORMS_FORM_LABEL_COMMENT"
+			rows="3"
+			filter="safehtml"
+		/>
+		
+		<field
+			name="captcha"
+			type="captcha"
+			label="MOD_FLXMLFORMS_FORM_CAPTCHA"
+			validate="captcha"
+		/>
+		
+	</fieldset>
+	
+</form>
