@@ -61,6 +61,20 @@ $form = ModFlxmlformsHelper::setForm($module->id, $params->get('form'));
 
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
+switch($params->get('privacy_type'))
+{
+	case 'menuitem' :
+		$privacy_uri = JRoute::_('index.php?Itemid='. $params->get('privacy_menuitem'));
+		break;
+	case 'article' :
+		$privacy_uri = JRoute::_(ContentHelperRoute::getArticleRoute(...explode('|', $params->get('privacy_article'))));
+		break;
+	default :
+		$privacy_uri = Juri::root();
+}
+
+$privacy_link = JText::sprintf('MOD_FLXMLFORMS_FORM_NOTICE_DEFAULT', $privacy_uri);
+
 require JModuleHelper::getLayoutPath('mod_flxmlforms', $params->get('layout', 'default'));
 
 // Revert Params Captcha

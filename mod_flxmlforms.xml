@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="3.8" client="site" method="upgrade">
+<extension type="module" version="3.9" client="site" method="upgrade">
 	<name>[FL] XML Forms</name>
 	<author>Vitaliy Moskalyuk</author>
 	<creationDate>October 2018</creationDate>
-	<copyright>(C) 2017-2018 Vitaliy Moskalyuk. All rights reserved.</copyright>
+	<copyright>(C) 2017-2020 Vitaliy Moskalyuk. All rights reserved.</copyright>
 	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
 	<authorEmail>info@2sweb.ru</authorEmail>
-	<version>3.0.1</version>
+	<version>3.0.2</version>
 	<description>MOD_FLXMLFORMS_XML_DESCRIPTION</description>
 	<files>
 		<folder>controllers</folder>
@@ -75,10 +75,31 @@
 		<fieldset name="advanced">
 			
 			<field
-				name="privacy"
+				name="privacy_type"
+				label="MOD_FLXMLFORMS_PRIVACY"
+				type="list"
+				default="0"
+			>
+				<option value="menuitem">menuitem</option>
+				<option value="article">article</option>
+			</field>
+			
+			<field
+				name="privacy_menuitem"
 				type="menuitem"
 				label="MOD_FLXMLFORMS_PRIVACY"
 				published="1"
+				showon="privacy_type:menuitem"
+			/>
+			
+			<field
+				name="privacy_article"
+				type="sql"
+				label="MOD_FLXMLFORMS_PRIVACY"
+				query="SELECT CONCAT(id, '|', catid) as asd, title FROM #__content WHERE state=1"
+				key_field="asd"
+				value_field="title"
+				showon="privacy_type:article"
 			/>
 			
 			<field

@@ -2,8 +2,6 @@
 
 defined( '_JEXEC' ) or die();
 
-// $privacy_link = JText::sprintf(('MOD_FLXMLFORMS_FORM_NOTICE_DEFAULT'), JRoute::_('index.php?Itemid='. $params->get('privacy')));
-
 ?>
 <div class="uk-container uk-container-center">
 	<div class="uk-block" id="<?php echo $module->id; ?>">

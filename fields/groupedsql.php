@@ -212,7 +212,7 @@ class JFormFieldGroupedSQL extends JFormField
 				case 'group':
 					
 					$q = (string)$element['query'];
-					$query = is_array($this->items[$q]) ? $q : null;
+					$query = (isset($this->items[$q]) && is_array($this->items[$q])) ? $q : null;
 					
 					// Get the group label.
 					if((string)$element['label'])

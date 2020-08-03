@@ -8,17 +8,6 @@
  */
 defined('_JEXEC') or die;
 
-// new InvalidArgumentException(JText::_('COM_AJAX_SPECIFY_FORMAT'), 404);
-
-// new LogicException(JText::sprintf('COM_AJAX_METHOD_NOT_EXISTS', $method . 'Ajax'), 404);
-// new LogicException(JText::sprintf('COM_AJAX_MODULE_NOT_ACCESSIBLE', 'mod_' . $module), 404);
-// new LogicException(JText::sprintf('COM_AJAX_METHOD_NOT_EXISTS', $method . 'Ajax'), 404);
-// new LogicException(JText::sprintf('COM_AJAX_TEMPLATE_NOT_ACCESSIBLE', 'tpl_' . $template), 404);
-
-// new RuntimeException(JText::sprintf('COM_AJAX_FILE_NOT_EXISTS', 'mod_' . $module . '/helper.php'), 404);
-// new RuntimeException(JText::sprintf('COM_AJAX_FILE_NOT_EXISTS', 'tpl_' . $template . '/helper.php'), 404);
-
-
 class ModflxmlformsHelper
 {
 	public function getAjax()
@@ -64,7 +53,7 @@ class ModflxmlformsHelper
 				// Save the data in the session.
 				$app->setUserState('mod_flxmlforms.form_' . $mid . '.data', $data);
 				$error_msg .= JText::_('JERROR_SESSION_STARTUP');
-				return new InvalidArgumentException($error_msg, 404);
+				return new RuntimeException($error_msg, 404);
 			}
 		}
 		
@@ -117,15 +106,13 @@ class ModflxmlformsHelper
 		
 		if(!file_exists($file))
 		{
-			return new InvalidArgumentException(JText::_('PHPMAILER_EXTENSION_MISSING') . $module->params->controller, 404);
+			return new RuntimeException(JText::_('PHPMAILER_EXTENSION_MISSING') . $module->params->controller, 404);
 		}
 		
 		JLoader::register('ModflxmlformsСontrollerBase', __DIR__ . '/controllers/_base.php');
 		JLoader::register($class, $file);
 		
-		
 		$data['subject'] = $form->getAttribute('subject', 'MOD_FLXMLFORMS_MESSAGE_SUBJECT_DEFAULT');
-		
 		
 		// Send the message
 		$sent = $class::send($data, $module->params);
@@ -139,11 +126,11 @@ class ModflxmlformsHelper
 		else if($sent === false)
 		{
 			$error_msg .= JText::_($form->getAttribute('error', 'MOD_FLXMLFORMS_MESSAGE_FUNCTION_OFFLINE'));
-			return new InvalidArgumentException($error_msg, 404);
+			return new RuntimeException($error_msg, 404);
 		}
 		else if($sent instanceof Exception)
 		{
-			return new InvalidArgumentException($sent->getMessage(), 404);
+			return new RuntimeException($sent->getMessage(), 404);
 		}
 		else
 		{

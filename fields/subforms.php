@@ -98,7 +98,7 @@ class JFormFieldSubforms extends JFormField
 	{
 		$options['hiddenLabel'] = true;
 		
-		$options['class'] = $options['class'] ? $options['class'] . ' fl-subforms' : 'fl-subforms';
+		$options['class'] = isset($options['class']) ? $options['class'] . ' fl-subforms' : 'fl-subforms';
 		
 		if($this->switch)
 		{
@@ -391,7 +391,9 @@ class JFormFieldSubforms extends JFormField
 				$search = substr($html, 0, strpos($html, ' ', strpos($html, '<')));
 				$replace = $search . $showon;
 				
-				$html = str_replace($search, $replace, $html, $c = 1);
+				$c = 1;
+				
+				$html = str_replace($search, $replace, $html, $c);
 			}
 			
 			// Add hidden input on front of the subform inputs, in multiple mode

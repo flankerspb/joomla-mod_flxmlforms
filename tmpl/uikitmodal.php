@@ -1,10 +1,6 @@
 <?php
 
 defined( '_JEXEC' ) or die();
-
-$privacy_link = JHTML::link(JRoute::_('index.php?Itemid='. '129'), JText::_('MOD_FLXMLFORMS_FORM_NOTICE_DEFAULT'),'target="_blank"');
-$privacy_link = JText::sprintf(('MOD_FLXMLFORMS_FORM_NOTICE_DEFAULT'), JRoute::_('index.php?Itemid='. $params->get('privacy')));
-
 ?>
 <div id="flmodalform<?php echo $module->id; ?>" class="uk-modal">
 	<div class="uk-modal-dialog">
